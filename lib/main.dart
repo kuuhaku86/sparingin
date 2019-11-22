@@ -56,7 +56,7 @@ class _MainAppState extends State<MainApp> {
     final login = await Me.getLogin();
     Navigator.pushReplacement(context, MaterialPageRoute(
       builder: (_) {
-        return login != null ? DashboardPage(login: login) : LoginPage();
+        return login != null ? DashboardPage() : LoginPage();
       }
     ));
   });

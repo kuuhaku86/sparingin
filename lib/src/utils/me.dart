@@ -1,18 +1,19 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sparingin/src/models/auth/login.dart';
 
 class Me {
   static String isLogin = "isLogin";
   static String token = "token";
-  static String name = "name";
   static String loginData = "login-data";
+  static String name = "user";
+  static String password = "user123";
+  static String email = "user@gmail.com";
+  static String telp = "08123456789";
 
-  static saveLogin(Login login) async {
+  static saveLogin() async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setBool(isLogin, true);
-    prefs.setString(loginData, jsonEncode(login));
   }
 
   static Future<bool> isLoggedIn() async {
@@ -24,9 +25,9 @@ class Me {
     return (await SharedPreferences.getInstance()).getString(key);
   }
 
-  static Future<Login> getLogin() async {
+  static Future<bool> getLogin() async {
     String data = (await SharedPreferences.getInstance()).getString(loginData);
-    return data != null ? Login.fromJson(jsonDecode(data)) : null;
+    return data != null ? true : null;
   }
 
   static logout() async {
