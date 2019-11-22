@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sparingin/src/utils/colors.dart';
 import 'package:sparingin/src/utils/validators.dart';
 
 class LoginPage extends StatefulWidget {
@@ -23,13 +24,20 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.greenAccent,
+          backgroundColor: MyColors.primary,
         ),
         body: Container(
+          color: MyColors.background,
           alignment: Alignment.center,
           child: SingleChildScrollView(
-            
+            child: Container(
+
+            ),
           ),
+        ),
+        bottomSheet: BottomNavigationBar(
+          backgroundColor: MyColors.background, 
+          items: <BottomNavigationBarItem>[],
         ),
       ),
     );

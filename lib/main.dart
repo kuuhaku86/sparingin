@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/dashboard_page.dart';
+import 'package:sparingin/src/models/features/auth/login/login_page.dart';
 import 'package:sparingin/src/utils/me.dart';
 
 void main() => runApp(MyApp());

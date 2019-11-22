@@ -55,6 +55,10 @@ class Login {
 }
 
 class LoginData {
+  String password;
+  String name;
+  String email;
+  String telp;
   String accessToken;
   String tokenType;
   String expiresAt;
