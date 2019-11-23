@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sparingin/src/utils/bottom_bar.dart';
 import 'package:sparingin/src/utils/colors.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -14,8 +15,22 @@ class _DashboardPageState extends State<DashboardPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: MyColors.primary,
+        title: Text("HALAMAN UTAMA"),
+        centerTitle: true,
       ),
-      body: Container(),
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        color: MyColors.background,
+        child: SingleChildScrollView(
+
+        ),
+      ),
+      bottomNavigationBar: Stack(
+        children: <Widget>[
+          DefaultBottomBar(),
+        ],
+      ),
     );
   }
 }

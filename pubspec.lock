@@ -53,6 +53,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_verification_code_input:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: dc52ada854eee3ff6ee2ca26a9eaa9c651faa1f7
+      url: "git://github.com/tinylife-io/flutter_verification_code_input.git"
+    source: git
+    version: "0.1.2"
   matcher:
     dependency: transitive
     description:

@@ -10,4 +10,9 @@ class Validators {
   static isValidPassword(String password) {
     return password.length >= 6;
   }
+
+  static isValidTelp(String telp) {
+    return telp.length >= 10;
+  }
+
 }

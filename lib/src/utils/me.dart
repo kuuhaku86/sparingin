@@ -25,14 +25,14 @@ class Me {
   }
 
   static Future<bool> getLogin() async {
-    String data = (await SharedPreferences.getInstance()).getString(loginData);
-    return data != null ? true : null;
+    bool isLoginCache = (await SharedPreferences.getInstance()).getBool(isLogin);
+    return isLoginCache != null ? true : null;
   }
 
-  static changeData(name, telp, tanggalLahir, email){
+  static changeData(name, telp, password, email){
     Me.name = name;
     Me.telp = telp;
-    Me.tanggalLahir = tanggalLahir;
+    Me.password = password;
     Me.email = email;
   }
 

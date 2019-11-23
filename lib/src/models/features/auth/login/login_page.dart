@@ -32,12 +32,19 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
   bool _isRightEmail;
   bool _isRightPassword; 
+  List<FocusNode> focusNode = [];
 
   @override
   void initState() { 
     super.initState();
     _isRightEmail = true;
     _isRightPassword = true;
+    for (var i = 0; i < 2; i++) {
+      focusNode.add(new FocusNode());
+      focusNode[i].addListener((){
+        setState(() {});
+      });
+    }
   }
 
   bool get isPopulated =>
@@ -80,13 +87,13 @@ class _LoginPageState extends State<LoginPage> {
                   width: double.infinity,
                 ),
                 buildPadding(),
-                buildTextField(false,_emailController,"Email"),
+                buildTextField(false,_emailController,"Email",0),
                 Padding(
                   padding: EdgeInsets.only(
                     top: 7.0
                   ),
                 ),
-                buildTextField(true,_passwordController,"Password"),
+                buildTextField(true,_passwordController,"Password",1),
                 _message(!_isRightEmail || !_isRightPassword,
                   widget: Center(
                     child: Text(
@@ -100,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.all(0),
                   child: Container(
                     height: 60,
-                    color: MyColors.primary,
+                    color: isLoginButtonEnabled()? MyColors.primary : MyColors.disabledButton,
                     child: Center(
                       child: Text(
                         "MASUK",
@@ -169,7 +176,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Container buildTextField(bool isObscure, TextEditingController textEditingController, String hintText) {
+  Container buildTextField(bool isObscure, TextEditingController textEditingController, String hintText,int focusNum) {
     return Container(
       width: 275.0,
       height: 60,
@@ -178,8 +185,9 @@ class _LoginPageState extends State<LoginPage> {
       child: Padding(
         padding: EdgeInsets.only(left: 15, right: 10),
         child: TextFormField(
+          focusNode: focusNode[focusNum],
           decoration: InputDecoration(
-            hintText: hintText,
+            hintText: focusNode[focusNum].hasFocus? "" : hintText,
             hintStyle: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w600,
@@ -201,6 +209,7 @@ class _LoginPageState extends State<LoginPage> {
   void _goDashboard() {
     if(_emailController.text == Me.email){
       if(_passwordController.text == Me.password){
+        Me.saveLogin();
         Navigator.pushReplacement(context, MaterialPageRoute(
           builder: (_) {
             return DashboardPage();
@@ -218,7 +227,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _goRegister() {
-    Navigator.push(context, MaterialPageRoute(
+    Navigator.pushReplacement(context, MaterialPageRoute(
       builder: (_) {
         return RegisterPage();
       }));
