@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sparingin/src/utils/colors.dart';
 
 class DashboardPage extends StatefulWidget {
   DashboardPage({Key key}) : super(key: key);
@@ -10,8 +11,11 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Container(),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: MyColors.primary,
+      ),
+      body: Container(),
     );
   }
 }
