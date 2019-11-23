@@ -58,6 +58,11 @@ class _VerificationPageState extends State<VerificationPage> {
                       full = true;
                     });
                   },
+                  onEditing: (bool value) {
+                    setState(() {
+                      full = false;
+                    });
+                  },
                 ),
                 buildPadding(20),
                 Container(
@@ -114,11 +119,7 @@ class _VerificationPageState extends State<VerificationPage> {
           ),
         ),
       ),
-      bottomNavigationBar: Stack(
-        children: <Widget>[
-          DefaultBottomBar(),
-        ],
-      ),
+      bottomNavigationBar: DefaultBottomBar(color: MyColors.background,),
     );
   }
 

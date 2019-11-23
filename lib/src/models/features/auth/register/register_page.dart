@@ -97,11 +97,7 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
       ),
-      bottomNavigationBar: Stack(
-          children: <Widget>[
-            DefaultBottomBar(),
-          ],
-        ),
+      bottomNavigationBar: DefaultBottomBar(color: MyColors.background,),
     );
   }
 
@@ -150,7 +146,6 @@ class _RegisterPageState extends State<RegisterPage> {
       _passwordController.text, 
       _emailController.text,
     );
-    Me.saveLogin();
     print(Me.name);
     print(Me.telp);
     print(Me.password);

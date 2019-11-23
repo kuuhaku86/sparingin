@@ -159,11 +159,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ),
-        bottomNavigationBar: Stack(
-          children: <Widget>[
-            DefaultBottomBar(),
-          ],
-        ),
+        bottomNavigationBar: DefaultBottomBar(color: MyColors.background,),
       ),
     );
   }

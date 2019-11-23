@@ -58,8 +58,8 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: dc52ada854eee3ff6ee2ca26a9eaa9c651faa1f7
-      url: "git://github.com/tinylife-io/flutter_verification_code_input.git"
+      resolved-ref: d4c45956633b11143fdd7dbc4363b5b18df2f18c
+      url: "git://github.com/awaik/flutter_verification_code_input.git"
     source: git
     version: "0.1.2"
   matcher:

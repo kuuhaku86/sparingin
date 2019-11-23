@@ -14,7 +14,7 @@ dependencies:
   carousel_slider: ^1.3.0
   flutter_verification_code_input:
       git:
-        url: git://github.com/tinylife-io/flutter_verification_code_input.git
+        url: git://github.com/awaik/flutter_verification_code_input.git
 
 dev_dependencies:
   flutter_test:
@@ -26,3 +26,10 @@ flutter:
     - assets/images/lapangan.jpg
     - assets/images/turnamen1.jpg
     - assets/images/turnamen2.jpg
+    - assets/images/icon.jpg
+    - assets/images/icons/akunSaya.png
+    - assets/images/icons/cariLapangan.png
+    - assets/images/icons/cariLawan.png
+    - assets/images/icons/faq.png
+    - assets/images/icons/pengaturan.png
+    - assets/images/icons/timKami.png

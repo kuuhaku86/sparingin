@@ -48,6 +48,10 @@ class _MainAppState extends State<MainApp> {
         child: AnimatedOpacity(
           duration: const Duration(seconds: 3),
           opacity: _isVisible ? 1 : 0,
+          child: Image.asset(
+            'assets/images/icon.jpg',
+            height: 100.0,
+          ),
         ),
       ),
     );
