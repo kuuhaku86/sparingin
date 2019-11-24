@@ -8,7 +8,8 @@ class Menu {
   Menu({
     @required this.name, 
     @required this.image, 
-    this.page})
+    @required this.page})
   : assert(name != null),
-  assert(image != null);
+  assert(image != null),
+  assert(page != null);
 }

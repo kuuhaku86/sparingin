@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/akunSaya/akun_saya_page.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/cariLapangan/cari_lapangan_page.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/cariLawan/cari_lawan_page.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/faq/faq_page.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/pengaturan/pengaturan_page.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/timKami/tim_kami_page.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
 import 'package:sparingin/src/utils/colors.dart';
 import 'package:sparingin/src/utils/menu.dart';
@@ -14,27 +20,33 @@ class _DashboardPageState extends State<DashboardPage> {
   List <Menu> menu = [
     new Menu(
       name: "Akun Saya",
-      image: "assets/images/icons/akunSaya.png"
+      image: "assets/images/icons/akunSaya.png",
+      page: AkunSayaPage(),
     ),
     new Menu(
       name: "Pengaturan",
-      image: "assets/images/icons/pengaturan.png"
+      image: "assets/images/icons/pengaturan.png",
+      page: PengaturanPage(),
     ),
     new Menu(
       name: "Cari Lawan",
-      image: "assets/images/icons/cariLawan.png"
+      image: "assets/images/icons/cariLawan.png",
+      page: CariLawanPage(),
     ),
     new Menu(
       name: "Cari Lapangan",
-      image: "assets/images/icons/cariLapangan.png"
+      image: "assets/images/icons/cariLapangan.png",
+      page: CariLapanganPage(),
     ),
     new Menu(
       name: "Tim Kami",
-      image: "assets/images/icons/timKami.png"
+      image: "assets/images/icons/timKami.png",
+      page: TimKamiPage(),
     ),
     new Menu(
       name: "FAQ",
-      image: "assets/images/icons/faq.png"
+      image: "assets/images/icons/faq.png",
+      page: FaqPage(),
     ),
   ];
 
@@ -168,7 +180,13 @@ class _DashboardPageState extends State<DashboardPage> {
       children: <Widget>[
         GestureDetector(
           behavior: HitTestBehavior.opaque,
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (_) {
+                return menu.page;
+              }
+            ));
+          },
           child: Container(
             decoration: BoxDecoration(
               color: MyColors.primary,
