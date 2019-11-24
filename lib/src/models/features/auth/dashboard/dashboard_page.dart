@@ -42,6 +42,13 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset(
+            "assets/images/icon.png",
+            height: 20,
+          ),
+        ),
         backgroundColor: MyColors.primary,
         title: Text("HALAMAN UTAMA"),
         centerTitle: true,
@@ -143,7 +150,6 @@ class _DashboardPageState extends State<DashboardPage> {
     child: Container(
       child: GridView.builder(
         physics: ClampingScrollPhysics(),
-        
         itemCount: 6,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,

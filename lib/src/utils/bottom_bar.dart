@@ -23,6 +23,10 @@ class DefaultBottomBar extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
+              Image.asset(
+                "assets/images/sparingin.png",
+                height: 15,
+              )
             ],
           ),
         ),

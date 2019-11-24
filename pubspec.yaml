@@ -26,7 +26,8 @@ flutter:
     - assets/images/lapangan.jpg
     - assets/images/turnamen1.jpg
     - assets/images/turnamen2.jpg
-    - assets/images/icon.jpg
+    - assets/images/icon.png
+    - assets/images/sparingin.png
     - assets/images/icons/akunSaya.png
     - assets/images/icons/cariLapangan.png
     - assets/images/icons/cariLawan.png

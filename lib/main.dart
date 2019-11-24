@@ -49,7 +49,7 @@ class _MainAppState extends State<MainApp> {
           duration: const Duration(seconds: 3),
           opacity: _isVisible ? 1 : 0,
           child: Image.asset(
-            'assets/images/icon.jpg',
+            'assets/images/icon.png',
             height: 100.0,
           ),
         ),
