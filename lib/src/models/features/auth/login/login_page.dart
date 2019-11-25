@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/dashboard_page.dart';
 import 'package:sparingin/src/models/features/auth/register/register_page.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
+import 'package:sparingin/src/utils/build_padding.dart';
 import 'package:sparingin/src/utils/colors.dart';
 import 'package:sparingin/src/utils/me.dart';
 import 'package:sparingin/src/utils/validators.dart';
@@ -86,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                   fit: BoxFit.cover,
                   width: double.infinity,
                 ),
-                buildPadding(),
+                buildPadding(35),
                 buildTextField(false,_emailController,"Email",0),
                 Padding(
                   padding: EdgeInsets.only(
@@ -102,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                       textAlign: TextAlign.center,
                     ),
                 )),
-                buildPadding(),
+                buildPadding(35),
                 RaisedButton(
                   padding: EdgeInsets.all(0),
                   child: Container(
@@ -160,14 +161,6 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         bottomNavigationBar: DefaultBottomBar(color: MyColors.background,),
-      ),
-    );
-  }
-
-  Padding buildPadding() {
-    return Padding(
-      padding: EdgeInsets.only(
-        top: 35.0
       ),
     );
   }

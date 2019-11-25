@@ -4,7 +4,7 @@ class Me {
   static String isLogin = "isLogin";
   static String token = "token";
   static String loginData = "login-data";
-  static String name = "user";
+  static String name = "User";
   static String password = "user123";
   static String email = "user@gmail.com";
   static String telp = "08123456789";

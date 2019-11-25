@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sparingin/src/models/features/auth/login/login_page.dart';
 import 'package:sparingin/src/models/features/auth/verification/verification_page.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
+import 'package:sparingin/src/utils/build_padding.dart';
 import 'package:sparingin/src/utils/colors.dart';
 import 'package:sparingin/src/utils/me.dart';
 import 'package:sparingin/src/utils/validators.dart';
@@ -98,12 +99,6 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
       ),
       bottomNavigationBar: DefaultBottomBar(color: MyColors.background,),
-    );
-  }
-
-  Padding buildPadding(double nums) {
-    return Padding(
-      padding: EdgeInsets.only(top: nums),
     );
   }
 

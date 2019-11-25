@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_verification_code_input/flutter_verification_code_input.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/dashboard_page.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
+import 'package:sparingin/src/utils/build_padding.dart';
 import 'package:sparingin/src/utils/colors.dart';
 import 'package:sparingin/src/utils/me.dart';
 
@@ -120,12 +121,6 @@ class _VerificationPageState extends State<VerificationPage> {
         ),
       ),
       bottomNavigationBar: DefaultBottomBar(color: MyColors.background,),
-    );
-  }
-
-  Padding buildPadding(double nums) {
-    return Padding(
-      padding: EdgeInsets.only(top: nums),
     );
   }
 

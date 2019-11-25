@@ -5,7 +5,9 @@ import 'package:sparingin/src/models/features/auth/dashboard/cariLawan/cari_lawa
 import 'package:sparingin/src/models/features/auth/dashboard/faq/faq_page.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/pengaturan/pengaturan_page.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/timKami/tim_kami_page.dart';
+import 'package:sparingin/src/utils/app_bar.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
+import 'package:sparingin/src/utils/build_padding.dart';
 import 'package:sparingin/src/utils/colors.dart';
 import 'package:sparingin/src/utils/menu.dart';
 
@@ -53,25 +55,16 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
+      appBar: buildAppBar(
+        "HALAMAN UTAMA",
+        Padding(
           padding: const EdgeInsets.all(8.0),
           child: Image.asset(
             "assets/images/icon.png",
             height: 20,
           ),
         ),
-        backgroundColor: MyColors.primary,
-        title: Text("HALAMAN UTAMA"),
-        centerTitle: true,
-        actions: <Widget>[
-          Icon(
-            Icons.refresh,
-            size: 35,
-          ),
-          SizedBox(width: 10,)
-        ],
-    ),
+      ),
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -148,12 +141,6 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
       ), onPressed: () {},
     );
-  }
-
-  Padding buildPadding(double nums) {
-    return Padding(
-        padding: EdgeInsets.only(top: nums),
-      );
   }
 
   Widget _buildMenu() => SizedBox(
