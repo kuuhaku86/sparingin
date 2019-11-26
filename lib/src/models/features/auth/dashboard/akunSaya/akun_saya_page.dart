@@ -41,7 +41,7 @@ class _AkunSayaPageState extends State<AkunSayaPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(
-                    Me.name,
+                    Me.username,
                     style: TextStyle(
                       color: MyColors.primary,
                       fontSize: 25,

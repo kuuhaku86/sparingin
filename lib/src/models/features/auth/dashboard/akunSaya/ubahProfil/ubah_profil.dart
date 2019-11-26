@@ -17,6 +17,7 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
   final TextEditingController _tanggalController = TextEditingController(text: Me.tanggalLahir);
   final TextEditingController _emailController = TextEditingController(text: Me.email);
   final TextEditingController _telpController = TextEditingController(text: Me.telp);
+  final TextEditingController _usernameController = TextEditingController(text: Me.username);
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +44,7 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
                     Me.telp = _telpController.text;
                     Me.email = _emailController.text;
                     Me.tanggalLahir = _tanggalController.text;
+                    Me.username = _usernameController.text;
                     Navigator.pop(context);
                   } : null,
                 ),
@@ -57,7 +59,7 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
             children: <Widget>[
               Container(
                 width: double.infinity,
-                height: 130,
+                height: 100,
                 color: Color.fromRGBO(175, 239, 175, 1),
               ),
               Container(
@@ -70,7 +72,7 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
             child: ListView(
               // crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                buildPadding(75),
+                buildPadding(50),
                 Image.asset(
                   "assets/images/profile.png",
                   height: 110,
@@ -110,6 +112,8 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
                 ),
                 buildPadding(20),
                 buildTextField(Me.name, _nameController,false),
+                buildPadding(10),
+                buildTextField(Me.username, _usernameController,false),
                 buildPadding(10),
                 buildTextField(Me.telp, _telpController,true),
                 buildPadding(10),

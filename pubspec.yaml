@@ -12,6 +12,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   shared_preferences: ^0.5.4
   carousel_slider: ^1.3.0
+  smooth_star_rating: ^1.0.3
   flutter_verification_code_input:
       git:
         url: git://github.com/awaik/flutter_verification_code_input.git
@@ -24,6 +25,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/lapangan.jpg
+    - assets/images/lapangan2.jpg
     - assets/images/turnamen1.jpg
     - assets/images/turnamen2.jpg
     - assets/images/icon.png
@@ -35,3 +37,9 @@ flutter:
     - assets/images/icons/pengaturan.png
     - assets/images/icons/timKami.png
     - assets/images/profile.png
+    - assets/images/card/chelsea.png
+    - assets/images/card/chelseaFutsal.jpg
+    - assets/images/card/liverpool.png
+    - assets/images/card/liverpoolFutsal.jpg
+    - assets/images/card/totenham.png
+    - assets/images/card/totenhamFutsal.jpg

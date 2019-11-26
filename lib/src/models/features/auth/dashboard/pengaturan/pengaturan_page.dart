@@ -38,7 +38,7 @@ class _PengaturanPageState extends State<PengaturanPage> {
                 Column(
                   children: <Widget>[
                     Text(
-                      Me.name,
+                      Me.username,
                       style: TextStyle(
                         color: MyColors.primary,
                         fontSize: 20,

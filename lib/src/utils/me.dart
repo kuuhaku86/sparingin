@@ -4,11 +4,13 @@ class Me {
   static String isLogin = "isLogin";
   static String token = "token";
   static String loginData = "login-data";
-  static String name = "User";
+  static String name = "Name";
+  static String username = "Username";
   static String password = "user123";
   static String email = "user@gmail.com";
   static String telp = "08123456789";
   static String tanggalLahir = "10-Juli-2000";
+  static int lapangan = 0;
 
   static saveLogin() async {
     final prefs = await SharedPreferences.getInstance();
@@ -39,6 +41,7 @@ class Me {
   static logout() async {
     final prefs = await SharedPreferences.getInstance();
     prefs.clear();
+    lapangan = 0;
     name = "user";
     password = "user123";
     email = "user@gmail.com";
