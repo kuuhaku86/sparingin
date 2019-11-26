@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sparingin/src/utils/app_bar.dart';
+import 'package:sparingin/src/utils/bottom_bar.dart';
 
 class FaqPage extends StatefulWidget {
   FaqPage({Key key}) : super(key: key);
@@ -10,8 +12,12 @@ class FaqPage extends StatefulWidget {
 class _FaqPageState extends State<FaqPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-       child: Scaffold(),
+    return Scaffold(
+      appBar: buildAppBar("FAQ", null),
+      body: ListView(
+        
+      ),
+      bottomNavigationBar: DefaultBottomBar(),
     );
   }
 }
