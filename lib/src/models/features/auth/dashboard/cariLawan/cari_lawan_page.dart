@@ -1,10 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/dashboard_page.dart';
 import 'package:sparingin/src/utils/app_bar.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
 import 'package:sparingin/src/utils/build_card.dart';
 import 'package:sparingin/src/utils/build_padding.dart';
 import 'package:sparingin/src/utils/colors.dart';
+import 'package:toast/toast.dart';
 
 class CariLawanPage extends StatefulWidget {
   CariLawanPage({Key key}) : super(key: key);
@@ -75,20 +77,19 @@ class _CariLawanPageState extends State<CariLawanPage> {
             enlargeCenterPage: true,
             height: 298,
             items: item,
-            // viewportFraction: 1.0,
             pauseAutoPlayOnTouch: Duration(seconds: 5),
           ),
           buildPadding(10),
-          buildButton("IKUTI PERTANDINGAN"),
+          buildButton("IKUTI PERTANDINGAN","Mengikuti Pertandingan"),
           buildPadding(10),
-          buildButton("AJAK BERTANDING"),
+          buildButton("AJAK BERTANDING","Berhasil mengajak bertanding"),
         ],
       ),
       bottomNavigationBar: DefaultBottomBar(),
     );
   }
 
-  Widget buildButton(String text) => GestureDetector(
+  Widget buildButton(String text,String pesan) => GestureDetector(
     child: Container(
       width: double.infinity,
       height: 70,
@@ -104,6 +105,13 @@ class _CariLawanPageState extends State<CariLawanPage> {
         ),
       ),
     ),
-    onTap: (){},
-  );
+    onTap: () async {
+      Toast.show(pesan, context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+      await Future.delayed(Duration(seconds: 1));
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+        builder: (_) {
+          return DashboardPage();
+        }
+      ), ModalRoute.withName('/'));
+    });
 }

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/dashboard_page.dart';
 import 'package:sparingin/src/utils/app_bar.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
 import 'package:sparingin/src/utils/build_padding.dart';
 import 'package:sparingin/src/utils/colors.dart';
 import 'package:sparingin/src/utils/list_lapangan.dart';
 import 'package:sparingin/src/utils/me.dart';
+import 'package:toast/toast.dart';
 
 class PembayaranPage extends StatefulWidget {
   PembayaranPage({Key key}) : super(key: key);
@@ -146,7 +148,14 @@ class _PembayaranPageState extends State<PembayaranPage> {
             Center(
               child: RaisedButton(
                 color: MyColors.primary,
-                onPressed: () {
+                onPressed: () async {
+                  Toast.show("Berhasil membayar", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+                  await Future.delayed(Duration(seconds: 1));
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                    builder: (_) {
+                      return DashboardPage();
+                    }
+                  ), ModalRoute.withName('/'));
                 },
                 child: Text(
                   "Konfirmasi",
