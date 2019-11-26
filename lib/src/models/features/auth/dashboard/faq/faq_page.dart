@@ -3,6 +3,7 @@ import 'package:sparingin/src/utils/app_bar.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
 import 'package:sparingin/src/utils/build_padding.dart';
 import 'package:sparingin/src/utils/colors.dart';
+import 'package:toast/toast.dart';
 
 class FaqPage extends StatefulWidget {
   FaqPage({Key key}) : super(key: key);
@@ -16,25 +17,46 @@ class _FaqPageState extends State<FaqPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar("FAQ", null),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: ListView(
         children: <Widget>[
+          buildPadding(90),
           Center(
             child: Text(
-              "E-mail : cp@gmail.com",
+              "Kritik & Saran",
               style: TextStyle(
-                fontSize: 25,
                 color: MyColors.font,
+                fontSize: 25,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
-          buildPadding(30),
+          buildPadding(10),
           Center(
-            child: Text(
-              "Phone : 081234567890",
-              style: TextStyle(
-                fontSize: 25,
-                color: MyColors.font,
+            child: Container(
+              color: MyColors.background,
+              width: 250,
+              child: TextField(
+                keyboardType: TextInputType.multiline,
+                maxLines: 10,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+          ),
+          buildPadding(10),
+          Center(
+            child: RaisedButton(
+              color: MyColors.font,
+              onPressed: (){
+                Toast.show("Berhasil Mengirim", context);
+                Navigator.pop(context);
+              },
+              child: Text(
+                "Kirim",
+                style: TextStyle(
+                  color: Colors.white
+                ),
               ),
             ),
           ),
