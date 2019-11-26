@@ -8,7 +8,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="sparingin"
+        android:label="Sparingin"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

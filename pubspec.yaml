@@ -14,6 +14,7 @@ dependencies:
   carousel_slider: ^1.3.0
   smooth_star_rating: ^1.0.3
   toast: ^0.1.5
+  flutter_launcher_icons: ^0.7.2
   flutter_verification_code_input:
       git:
         url: git://github.com/awaik/flutter_verification_code_input.git
@@ -46,3 +47,8 @@ flutter:
     - assets/images/card/totenhamFutsal.jpg
     - assets/images/card/juaraFutsal.jpg
     - assets/images/card/krustykrab.png
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/icon.png"
