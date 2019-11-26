@@ -93,6 +93,7 @@ Widget buildCardLapangan(String image, String name, String alamat, String provin
           SmoothStarRating(
             rating: rating,
             color: Colors.orange,
+            borderColor: Colors.orange,
           ),
           buildPadding(3),
           Text(
@@ -105,6 +106,7 @@ Widget buildCardLapangan(String image, String name, String alamat, String provin
           ),
           buildPadding(3),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
                 provinsi + "  ",
