@@ -36,6 +36,7 @@ class _PengaturanPageState extends State<PengaturanPage> {
                   width: 10,
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
                       Me.username,
