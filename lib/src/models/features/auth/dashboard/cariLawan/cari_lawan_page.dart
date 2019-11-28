@@ -32,8 +32,8 @@ class _CariLawanPageState extends State<CariLawanPage> {
       buildCard(
       'assets/images/card/totenhamFutsal.jpg', 
       'assets/images/card/totenham.png', 
-      "Chelsea FC", 
-      "KTBBF", 
+      "Totenham Hotspur", 
+      "The Lily Whites", 
       "Sedang mencari lawan"),
   ];
 
@@ -43,36 +43,7 @@ class _CariLawanPageState extends State<CariLawanPage> {
       appBar: buildAppBar("CARI LAWAN", null),
       body: ListView(
         children: <Widget>[
-          buildPadding(10),
-          Align(
-            alignment: Alignment.topRight,
-            child: Container(
-              margin: EdgeInsets.only(right: 10),
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              width: 175,
-              height: 40,
-              decoration: BoxDecoration(
-                color: MyColors.input,
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child: TextFormField(
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white,
-                ),
-                decoration: InputDecoration(
-                  hintText: "Cari Berdasarkan",
-                  hintStyle: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
-                  ),
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-          ),
+          buildPadding(20),
           CarouselSlider(
             enlargeCenterPage: true,
             height: 298,
