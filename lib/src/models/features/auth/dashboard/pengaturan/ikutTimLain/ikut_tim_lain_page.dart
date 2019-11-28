@@ -46,6 +46,7 @@ class _IkutTimLainPageState extends State<IkutTimLainPage> {
               Toast.show("Berhasil Mengikuti Tim", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
               if(Me.team != -1 && listTeam[Me.team].teamPlayer.length == 4)
                 listTeam[Me.team].teamPlayer.removeLast();
+              if(listTeam.length > 6)listTeam.removeLast();
               for (var i = 0; i < listTeam.length; i++) {
                 if(tempList[index].name == listTeam[i].name) {
                   Me.team = i;

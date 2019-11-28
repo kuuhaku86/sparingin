@@ -54,6 +54,7 @@ flutter:
     - assets/images/card/phuketUnited.png
     - assets/images/card/canadianFutsal.jpg
     - assets/images/card/canadian.png
+    - assets/images/card/its.png
 
 flutter_icons:
   android: true

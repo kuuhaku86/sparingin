@@ -17,7 +17,14 @@ class _TimKamiPageState extends State<TimKamiPage> {
   @override
   void initState() {
     super.initState();
-    if(listTeam[Me.team].teamPlayer.length != 4){
+    bool checkName = false;
+    for (var i = 0; i < listTeam[Me.team].teamPlayer.length; i++) {
+      if(listTeam[Me.team].teamPlayer[i] == Me.name){
+        checkName = true;
+        break;
+      }
+    }
+    if(!checkName){
       listTeam[Me.team].teamPlayer.add(Me.name);
     }
   }
@@ -28,20 +35,20 @@ class _TimKamiPageState extends State<TimKamiPage> {
       appBar: buildAppBar("TIM KAMI", null),
       body: Me.team != -1 ? ListView(
         children: <Widget>[
-          Image.asset(
+          listTeam[Me.team].image != null ? Image.asset(
             listTeam[Me.team].image,
             height: 200,
             fit: BoxFit.cover,
             alignment: Alignment.topCenter,
-          ),
+          ) : Container(),
           buildPadding(20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset(
+              listTeam[Me.team].icon != null ? Image.asset(
                 listTeam[Me.team].icon,
                 height: 80,
-              ),
+              ) : Container(),
               SizedBox(width: 4,),
               Column(
                 children: <Widget>[
@@ -54,14 +61,14 @@ class _TimKamiPageState extends State<TimKamiPage> {
                     ),
                   ),
                   buildPadding(3),
-                  Text(
+                  listTeam[Me.team].slogan != null ? Text(
                     listTeam[Me.team].slogan,
                     style: TextStyle(
                       color: MyColors.font,
                       fontSize: 20,
                       fontWeight: FontWeight.w400,
                     ),
-                  ),
+                  ) : "",
                   buildPadding(10),
                   Text(
                     "Pemain : ",

@@ -118,11 +118,11 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
                   ],
                 ),
                 buildPadding(20),
-                buildTextField(Me.name, _nameController,false),
+                buildTextField( _nameController,false),
                 buildPadding(10),
-                buildTextField(Me.username, _usernameController,false),
+                buildTextField( _usernameController,false),
                 buildPadding(10),
-                buildTextField(Me.telp, _telpController,true),
+                buildTextField( _telpController,true),
                 buildPadding(10),
                 Container(
                   decoration: BoxDecoration(
@@ -163,7 +163,7 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
                   ),
                 ),
                 buildPadding(10),
-                buildTextField(Me.email, _emailController,false),
+                buildTextField( _emailController,false),
               ],
             ),
           ),
@@ -173,7 +173,7 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
     );
   }
 
-  Widget buildTextField(String text, TextEditingController textEditingController, bool isNumber) => Container(
+  Widget buildTextField(TextEditingController textEditingController, bool isNumber) => Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.all(Radius.circular(10.0)),
       color: MyColors.background,
