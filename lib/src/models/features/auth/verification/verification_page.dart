@@ -144,16 +144,16 @@ class _VerificationPageState extends State<VerificationPage> {
   }
 
   void _goDashboard() {
-    Me.saveLogin();
-    Me.register = true;
-    Me.changeData(
-      Me.tempName,
-      Me.tempTelp, 
-      Me.tempPassword, 
-      Me.tempEmail,
-      Me.register
-    );
     if(Me.tempTanggalLahir != null && verifCode.toString() == userVerif ) {
+      Me.saveLogin();
+      Me.register = true;
+      Me.changeData(
+        Me.tempName,
+        Me.tempTelp, 
+        Me.tempPassword, 
+        Me.tempEmail,
+        Me.register
+      );
       Me.tanggalLahir = Me.tempTanggalLahir;
       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
         builder: (_) {
