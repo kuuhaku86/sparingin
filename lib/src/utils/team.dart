@@ -5,8 +5,9 @@ class Team {
   final String slogan;
   final String status;
   final bool full;
-  final List<String> teamPlayer;
-  Team(this.image, 
+  List<String> teamPlayer;
+  Team(
+    this.image, 
     this.icon, 
     this.name, 
     this.slogan, 

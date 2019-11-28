@@ -56,14 +56,16 @@ class Me {
   static logout() async {
     final prefs = await SharedPreferences.getInstance();
     prefs.clear();
-    lapangan = 0;
-    name = "user";
-    password = "user123";
-    email = "user@gmail.com";
-    telp = "08123456789";
-    register = false;
-    tanggalLahir = DateTime(2000,6,16,);
-    tempTanggalLahir = DateTime(2000,6,16,);
+    Me.lapangan = 0;
+    Me.name = "user";
+    Me.password = "user123";
+    Me.email = "user@gmail.com";
+    Me.telp = "08123456789";
+    Me.register = false;
+    Me.tanggalLahir = DateTime(2000,6,16,);
+    Me.tempTanggalLahir = DateTime(2000,6,16,);
+    Me.team = 3;
     listTeam[team].teamPlayer.removeLast();
   }
 }
+

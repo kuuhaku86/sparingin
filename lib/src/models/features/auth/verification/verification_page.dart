@@ -147,6 +147,7 @@ class _VerificationPageState extends State<VerificationPage> {
     if(Me.tempTanggalLahir != null && verifCode.toString() == userVerif ) {
       Me.saveLogin();
       Me.register = true;
+      Me.team = -1;
       Me.changeData(
         Me.tempName,
         Me.tempTelp, 
