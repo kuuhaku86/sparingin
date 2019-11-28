@@ -188,7 +188,7 @@ class _RegisterPageState extends State<RegisterPage> {
       _emailController.text,
       Me.register
     );
-    Navigator.pushReplacement(context, MaterialPageRoute(
+    Navigator.push(context, MaterialPageRoute(
       builder: (_) {
         return VerificationPage();
       }));

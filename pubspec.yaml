@@ -19,6 +19,7 @@ dependencies:
         url: git://github.com/awaik/flutter_verification_code_input.git
   datetime_picker_formfield: ^0.4.3
   intl: ^0.15.8
+  sms: ^0.2.0
 
 dev_dependencies:
   flutter_test:

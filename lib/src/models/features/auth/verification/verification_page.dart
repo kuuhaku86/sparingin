@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code_input/flutter_verification_code_input.dart';
+import 'package:sms/sms.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/dashboard_page.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
 import 'package:sparingin/src/utils/build_padding.dart';
@@ -15,6 +18,18 @@ class VerificationPage extends StatefulWidget {
 
 class _VerificationPageState extends State<VerificationPage> {
   bool full = false;
+  SmsSender sender = new SmsSender();
+  String address = "+62" + Me.tempTelp.substring(1);
+  var rng = new Random();
+  int verifCode = 1000;
+  String userVerif;
+
+  @override
+  void initState() {
+    super.initState();
+    verifCode = rng.nextInt(8000) + 1000;
+    sender.sendSms(new SmsMessage(address, 'Insert this verification code : ' + verifCode.toString()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +71,7 @@ class _VerificationPageState extends State<VerificationPage> {
                   length: 4,
                   onCompleted: (String value) {
                     setState(() {
+                      userVerif = value;
                       full = true;
                     });
                   },
@@ -95,7 +111,10 @@ class _VerificationPageState extends State<VerificationPage> {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            onTap: null,
+                            onTap: () {
+                              verifCode = rng.nextInt(8000) + 1000;
+                              sender.sendSms(new SmsMessage(address, 'Insert this verification code : ' + verifCode.toString()));
+                            },
                           ),
                         ],
                       ),
@@ -134,10 +153,15 @@ class _VerificationPageState extends State<VerificationPage> {
       Me.tempEmail,
       Me.register
     );
-    if(Me.tempTanggalLahir != null) Me.tanggalLahir = Me.tempTanggalLahir;
-    Navigator.pushReplacement(context, MaterialPageRoute(
-      builder: (_) {
-        return DashboardPage();
-      }));
+    if(Me.tempTanggalLahir != null && verifCode.toString() == userVerif ) {
+      Me.tanggalLahir = Me.tempTanggalLahir;
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+        builder: (_) {
+          return DashboardPage();
+        }
+      ), ModalRoute.withName('/'));
+    }
   }
+
+  
 }
