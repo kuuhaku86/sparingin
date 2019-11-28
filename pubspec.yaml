@@ -17,6 +17,8 @@ dependencies:
   flutter_verification_code_input:
       git:
         url: git://github.com/awaik/flutter_verification_code_input.git
+  datetime_picker_formfield: ^0.4.3
+  intl: ^0.15.8
 
 dev_dependencies:
   flutter_test:
@@ -47,6 +49,10 @@ flutter:
     - assets/images/card/totenhamFutsal.jpg
     - assets/images/card/juaraFutsal.jpg
     - assets/images/card/krustykrab.png
+    - assets/images/card/phuketUnitedFutsal.jpg
+    - assets/images/card/phuketUnited.png
+    - assets/images/card/canadianFutsal.jpg
+    - assets/images/card/canadian.png
 
 flutter_icons:
   android: true

@@ -1,4 +1,6 @@
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:sparingin/src/models/features/auth/login/login_page.dart';
 import 'package:sparingin/src/models/features/auth/verification/verification_page.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
@@ -15,6 +17,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final format = DateFormat("dd-MM-yyyy");
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _telpController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -34,10 +37,12 @@ class _RegisterPageState extends State<RegisterPage> {
         setState(() {});
       });
     }
+
+    Me.tempTanggalLahir = null;
   }
 
   bool get isPopulated =>
-    _emailController.text.isNotEmpty && _passwordController.text.isNotEmpty && _nameController.text.isNotEmpty && _telpController.text.isNotEmpty;
+    _emailController.text.isNotEmpty && _passwordController.text.isNotEmpty && _nameController.text.isNotEmpty && _telpController.text.isNotEmpty && Me.tempTanggalLahir != null;
   
   bool isLoginButtonEnabled() =>
     isPopulated && Validators.isValidEmail(_emailController.text) && Validators.isValidPassword(_passwordController.text) && Validators.isValidTelp(_telpController.text);
@@ -59,15 +64,56 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Center(
             child: Column(
               children: <Widget>[
-                buildPadding(70),
+                buildPadding(20),
                 buildTextField(false, _nameController, "NAMA PENGGUNA",false,0),
                 buildPadding(15),
                 buildTextField(false, _emailController, "EMAIL",false,1),
                 buildPadding(15),
+                Container(
+                  width: double.infinity,
+                  height: 60,
+                  color: MyColors.primary,
+                  alignment: Alignment.center,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 15, right: 10),
+                    child: DateTimeField(
+                      resetIcon: null,
+                      textAlign: TextAlign.center,
+                      format: format,
+                      style: TextStyle(
+                        color: Colors.white,
+                        decoration: TextDecoration.none,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      decoration: InputDecoration(
+                        hintText: "Tanggal Lahir",
+                        hintStyle: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        border: InputBorder.none,
+                      ),
+                      onShowPicker: (context, currentValue) {
+                        return showDatePicker(
+                            context: context,
+                            firstDate: DateTime(1990,1,1),
+                            initialDate: currentValue ?? DateTime(2000,6,16),
+                            lastDate: DateTime(2014,12,30));
+                      },
+                      onChanged: (DateTime newValue) {
+                        setState(() {
+                        Me.tempTanggalLahir = newValue;
+                        });
+                      },
+                      readOnly: true,
+                    ),
+                  ),
+                ),
+                buildPadding(15),
                 buildTextField(true, _passwordController, "KATA SANDI",false,2),
                 buildPadding(15),
                 buildTextField(false, _telpController, "NOMOR TELEPON",true,3),
-                buildPadding(40),
+                buildPadding(30),
                 RaisedButton(
                   color: Colors.grey,
                   disabledColor: MyColors.disabledButton,
@@ -140,11 +186,8 @@ class _RegisterPageState extends State<RegisterPage> {
       _telpController.text, 
       _passwordController.text, 
       _emailController.text,
+      Me.register
     );
-    print(Me.name);
-    print(Me.telp);
-    print(Me.password);
-    print(Me.email);
     Navigator.pushReplacement(context, MaterialPageRoute(
       builder: (_) {
         return VerificationPage();

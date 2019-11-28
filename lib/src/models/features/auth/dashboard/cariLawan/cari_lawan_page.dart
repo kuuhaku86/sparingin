@@ -6,6 +6,7 @@ import 'package:sparingin/src/utils/bottom_bar.dart';
 import 'package:sparingin/src/utils/build_card.dart';
 import 'package:sparingin/src/utils/build_padding.dart';
 import 'package:sparingin/src/utils/colors.dart';
+import 'package:sparingin/src/utils/team.dart';
 import 'package:toast/toast.dart';
 
 class CariLawanPage extends StatefulWidget {
@@ -16,26 +17,21 @@ class CariLawanPage extends StatefulWidget {
 }
 
 class _CariLawanPageState extends State<CariLawanPage> {
-  List<Card> item = [
-    buildCard(
-      'assets/images/card/chelseaFutsal.jpg', 
-      'assets/images/card/chelsea.png', 
-      "Chelsea FC", 
-      "KTBBF", 
-      "Sedang mencari lawan"),
-      buildCard(
-      'assets/images/card/liverpoolFutsal.jpg', 
-      'assets/images/card/liverpool.png', 
-      "Liverpool FC", 
-      "You'll Never Walk Alone", 
-      "Sedang bertanding"),
-      buildCard(
-      'assets/images/card/totenhamFutsal.jpg', 
-      'assets/images/card/totenham.png', 
-      "Totenham Hotspur", 
-      "The Lily Whites", 
-      "Sedang mencari lawan"),
-  ];
+  List<Card> item = [];
+
+  @override
+  void initState() {
+    super.initState();
+    for (var team in listTeam) {
+      if(team.full == true)
+        item.add(buildCard(
+          team.image, 
+          team.icon, 
+          team.name, 
+          team.slogan, 
+          team.status));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

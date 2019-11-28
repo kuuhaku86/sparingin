@@ -1,4 +1,6 @@
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
 import 'package:sparingin/src/utils/build_padding.dart';
 import 'package:sparingin/src/utils/colors.dart';
@@ -14,10 +16,16 @@ class UbahProfilPage extends StatefulWidget {
 
 class _UbahProfilPageState extends State<UbahProfilPage> {
   final TextEditingController _nameController = TextEditingController(text: Me.name);
-  final TextEditingController _tanggalController = TextEditingController(text: Me.tanggalLahir);
   final TextEditingController _emailController = TextEditingController(text: Me.email);
   final TextEditingController _telpController = TextEditingController(text: Me.telp);
   final TextEditingController _usernameController = TextEditingController(text: Me.username);
+  final format = DateFormat("dd-MM-yyyy");
+
+  @override
+  void initState() {
+    Me.tempTanggalLahir = Me.tanggalLahir;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +51,7 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
                     Me.name = _nameController.text;
                     Me.telp = _telpController.text;
                     Me.email = _emailController.text;
-                    Me.tanggalLahir = _tanggalController.text;
+                    if(Me.tempTanggalLahir != null) Me.tanggalLahir = Me.tempTanggalLahir;
                     Me.username = _usernameController.text;
                     Navigator.pop(context);
                   } : null,
@@ -70,7 +78,6 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
           ),
           Center(
             child: ListView(
-              // crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 buildPadding(50),
                 Image.asset(
@@ -117,7 +124,44 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
                 buildPadding(10),
                 buildTextField(Me.telp, _telpController,true),
                 buildPadding(10),
-                buildTextField(Me.tanggalLahir, _tanggalController,false),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    color: MyColors.background,
+                  ),
+                  margin: EdgeInsets.symmetric(horizontal: 10.0),
+                  padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  height: 50,
+                  child: DateTimeField(
+                    resetIcon: null,
+                    textAlign: TextAlign.left,
+                    format: format,
+                    style: TextStyle(
+                      color: MyColors.font,
+                      decoration: TextDecoration.none,
+                    ),
+                    decoration: InputDecoration(
+                      hintText: format.format(Me.tanggalLahir),
+                      hintStyle: TextStyle(
+                        color: MyColors.font,
+                      ),
+                      border: InputBorder.none,
+                    ),
+                    onShowPicker: (context, currentValue) {
+                      return showDatePicker(
+                          context: context,
+                          firstDate: DateTime(1990,1,1),
+                          initialDate: currentValue ?? Me.tanggalLahir,
+                          lastDate: DateTime(2014,12,30));
+                    },
+                    onChanged: (DateTime newValue) {
+                      setState(() {
+                      Me.tempTanggalLahir = newValue;
+                      });
+                    },
+                    readOnly: true,
+                  ),
+                ),
                 buildPadding(10),
                 buildTextField(Me.email, _emailController,false),
               ],
@@ -150,7 +194,7 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
   );
 
   bool get isPopulated =>
-    _emailController.text.isNotEmpty && _nameController.text.isNotEmpty && _telpController.text.isNotEmpty && _tanggalController.text.isNotEmpty;
+    _emailController.text.isNotEmpty && _nameController.text.isNotEmpty && _telpController.text.isNotEmpty && Me.tempTanggalLahir != null;
   
   bool isLoginButtonEnabled() =>
     isPopulated && Validators.isValidEmail(_emailController.text) && Validators.isValidTelp(_telpController.text);

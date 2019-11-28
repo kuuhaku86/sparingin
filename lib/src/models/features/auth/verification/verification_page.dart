@@ -126,6 +126,15 @@ class _VerificationPageState extends State<VerificationPage> {
 
   void _goDashboard() {
     Me.saveLogin();
+    Me.register = true;
+    Me.changeData(
+      Me.tempName,
+      Me.tempTelp, 
+      Me.tempPassword, 
+      Me.tempEmail,
+      Me.register
+    );
+    if(Me.tempTanggalLahir != null) Me.tanggalLahir = Me.tempTanggalLahir;
     Navigator.pushReplacement(context, MaterialPageRoute(
       builder: (_) {
         return DashboardPage();
