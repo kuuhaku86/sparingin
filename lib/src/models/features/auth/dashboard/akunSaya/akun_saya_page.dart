@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/akunSaya/riwayat/riwayat.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/akunSaya/ubahProfil/ubah_profil.dart';
 import 'package:sparingin/src/models/features/auth/login/login_page.dart';
 import 'package:sparingin/src/utils/app_bar.dart';
@@ -76,13 +77,13 @@ class _AkunSayaPageState extends State<AkunSayaPage> {
             ],
           ),
           buildPadding(20),
-          buildButton("69 Poin"),
+          buildButton(Me.point.toString() + " Poin",1),
           buildPadding(13),
-          buildButton("Rewards"),
+          buildButton("Rewards",2),
           buildPadding(13),
-          buildButton("Riwayat Pemesanan"),
+          buildButton("Riwayat Pemesanan",3),
           buildPadding(13),
-          buildButton("Kata Sandi"),
+          buildButton("Kata Sandi",3),
           buildPadding(40),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -111,36 +112,43 @@ class _AkunSayaPageState extends State<AkunSayaPage> {
     );
   }
 
-  Widget buildButton(String text) => Container(
-    width: double.infinity,
-    height: 60,
-    color: MyColors.primary,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Text(
-            text,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
+  Widget buildButton(String text,int index) => GestureDetector(
+      child: Container(
+        width: double.infinity,
+        height: 60,
+        color: MyColors.primary,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Text(
+                text,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                )
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Text(
+                ">",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                )
+              ),
             )
-          ),
+          ],
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Text(
-            ">",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-            )
-          ),
-        )
-      ],
     ),
+    onTap: (){
+      Navigator.push(context, MaterialPageRoute(
+        builder: (_) => RiwayatPage(kind: index),
+      ));
+    },
   );
 }

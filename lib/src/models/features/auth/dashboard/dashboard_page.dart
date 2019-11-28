@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/akunSaya/akun_saya_page.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/akunSaya/riwayat/riwayat.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/cariLapangan/cari_lapangan_page.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/cariLawan/cari_lawan_page.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/faq/faq_page.dart';
@@ -9,6 +10,7 @@ import 'package:sparingin/src/utils/app_bar.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
 import 'package:sparingin/src/utils/build_padding.dart';
 import 'package:sparingin/src/utils/colors.dart';
+import 'package:sparingin/src/utils/me.dart';
 import 'package:sparingin/src/utils/menu.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -106,7 +108,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
               ),
               Text(
-                "Rp 300.000",
+                "Rp " + Me.money.toString(),
                 style: TextStyle(
                   color: MyColors.font, 
                   fontSize: 17,
@@ -121,9 +123,9 @@ class _DashboardPageState extends State<DashboardPage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              buildRaisedButton("Pay"),
-              buildRaisedButton("Top Up"),
-              buildRaisedButton("Rewards"),
+              buildRaisedButton("Pay",false),
+              buildRaisedButton("Top Up",false),
+              buildRaisedButton("Rewards",true),
             ],
           ),
         ),
@@ -131,7 +133,7 @@ class _DashboardPageState extends State<DashboardPage> {
     ),
   );
 
-  RaisedButton buildRaisedButton(String text) {
+  RaisedButton buildRaisedButton(String text,bool isRewards) {
     return RaisedButton(
       color: MyColors.primary,
       child: Text(
@@ -139,7 +141,11 @@ class _DashboardPageState extends State<DashboardPage> {
         style: TextStyle(
           color: Colors.white,
         ),
-      ), onPressed: () {},
+      ), onPressed: isRewards ? () {
+        Navigator.push(context, MaterialPageRoute(
+          builder: (_) => RiwayatPage(kind: 2),
+        ));
+      }:() {},
     );
   }
 

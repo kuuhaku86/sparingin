@@ -155,6 +155,8 @@ class _VerificationPageState extends State<VerificationPage> {
         Me.tempEmail,
         Me.register
       );
+      Me.money = 0;
+      Me.point = 0;
       Me.tanggalLahir = Me.tempTanggalLahir;
       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
         builder: (_) {

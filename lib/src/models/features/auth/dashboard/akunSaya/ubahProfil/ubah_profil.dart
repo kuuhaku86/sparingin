@@ -1,6 +1,7 @@
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/akunSaya/riwayat/riwayat.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
 import 'package:sparingin/src/utils/build_padding.dart';
 import 'package:sparingin/src/utils/colors.dart';
@@ -98,7 +99,7 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      "69 Points | ",
+                      Me.point.toString() + " Points | ",
                       style: TextStyle(
                         color: MyColors.font,
                         fontSize: 17,
@@ -114,6 +115,11 @@ class _UbahProfilPageState extends State<UbahProfilPage> {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (_) => RiwayatPage(kind: 2),
+                        ));
+                      },
                     ),
                   ],
                 ),

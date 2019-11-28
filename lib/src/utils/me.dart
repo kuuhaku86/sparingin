@@ -19,6 +19,8 @@ class Me {
   static String tempPassword = "user123";
   static String tempEmail = "user@gmail.com";
   static DateTime tempTanggalLahir = DateTime(2000,6,16,);
+  static int money = 300000;
+  static int point = 100;
 
   static saveLogin() async {
     final prefs = await SharedPreferences.getInstance();
@@ -65,6 +67,8 @@ class Me {
     Me.tanggalLahir = DateTime(2000,6,16,);
     Me.tempTanggalLahir = DateTime(2000,6,16,);
     Me.team = 3;
+    Me.money = 300000;
+    Me.point = 100;
     listTeam[team].teamPlayer.removeLast();
   }
 }
