@@ -73,14 +73,14 @@ List <Team> listTeam = [
   new Team(
     'assets/images/card/phuketUnitedFutsal.jpg', 
     'assets/images/card/phuketUnited.png', 
-    "Juara Team", 
-    "Yang Penting Menang", 
+    "Phuket Team", 
+    "Yuk Main", 
     "Sedang mencari kawan",
     false,
     [
-      "Anto",
-      "Parto",
-      "Andy",
+      "Andre",
+      "Pilo",
+      "Kiki",
     ]
   ),
 ];

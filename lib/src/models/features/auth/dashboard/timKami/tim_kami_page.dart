@@ -15,6 +15,14 @@ class TimKamiPage extends StatefulWidget {
 
 class _TimKamiPageState extends State<TimKamiPage> {
   @override
+  void initState() {
+    super.initState();
+    if(listTeam[Me.team].teamPlayer.length != 4){
+      listTeam[Me.team].teamPlayer.add(Me.name);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar("TIM KAMI", null),

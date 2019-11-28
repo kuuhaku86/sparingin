@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/pengaturan/buatTimBaru/buat_tim_page.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/pengaturan/ikutTimLain/ikut_tim_lain_page.dart';
 import 'package:sparingin/src/models/features/auth/login/login_page.dart';
 import 'package:sparingin/src/utils/app_bar.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
@@ -59,9 +61,9 @@ class _PengaturanPageState extends State<PengaturanPage> {
             ),
           ),
           buildPadding(50),
-          buildButton("BUAT TIM BARU"),
+          buildButton("BUAT TIM BARU",BuatTimPage()),
           buildPadding(13),
-          buildButton("IKUT TIM LAIN"),
+          buildButton("IKUT TIM LAIN",IkutTimLainPage()),
           buildPadding(20),
           buildToggleButton("Notifikasi Pesan",0),
           buildToggleButton("Notifikasi Tim",1),
@@ -98,7 +100,7 @@ class _PengaturanPageState extends State<PengaturanPage> {
     );
   }
 
-  Widget buildButton(String text) => GestureDetector(
+  Widget buildButton(String text, Widget page) => GestureDetector(
     child: Container(
       width: double.infinity,
       height: 70,
@@ -114,7 +116,11 @@ class _PengaturanPageState extends State<PengaturanPage> {
         ),
       ),
     ),
-    onTap: (){},
+    onTap: (){
+      Navigator.push(context, MaterialPageRoute(
+        builder: (_) => page, 
+      ));
+    },
   );
 
   Widget buildToggleButton(String text, int index) => Center(

@@ -10,6 +10,7 @@ Widget buildCard(String image, String icon, String name, String slogan, String s
     children: <Widget>[
       Image.asset(
         image,
+        alignment: Alignment.topCenter,
         width: double.infinity,
         height: 143,
         fit: BoxFit.cover,
