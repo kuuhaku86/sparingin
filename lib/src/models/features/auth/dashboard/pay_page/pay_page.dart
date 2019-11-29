@@ -33,7 +33,6 @@ class _PayPageState extends State<PayPage> {
             Container(
               width: 250,
               height: 45,
-              color: MyColors.input,
               child: TextFormField(
                 textAlign: TextAlign.center,
                 controller: textEditingController,
@@ -43,7 +42,6 @@ class _PayPageState extends State<PayPage> {
                   fontSize: 17,
                 ),
                 decoration: InputDecoration(
-                  border: InputBorder.none,
                   hintText: "Insert The Number Here",
                   hintStyle: TextStyle(
                     color: MyColors.font,

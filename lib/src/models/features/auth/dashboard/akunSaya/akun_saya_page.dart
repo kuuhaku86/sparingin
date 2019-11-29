@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/akunSaya/kataSandi/kata_sandi.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/akunSaya/riwayat/riwayat.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/akunSaya/ubahProfil/ubah_profil.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/pay_page/pay_page.dart';
 import 'package:sparingin/src/models/features/auth/login/login_page.dart';
 import 'package:sparingin/src/utils/app_bar.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';
@@ -77,13 +79,13 @@ class _AkunSayaPageState extends State<AkunSayaPage> {
             ],
           ),
           buildPadding(20),
-          buildButton(Me.point.toString() + " Poin",1),
+          buildButton(Me.point.toString() + " Poin",1,true),
           buildPadding(13),
-          buildButton("Rewards",2),
+          buildButton("Rewards",2,true),
           buildPadding(13),
-          buildButton("Riwayat Pemesanan",3),
+          buildButton("Riwayat Pemesanan",3,true),
           buildPadding(13),
-          buildButton("Kata Sandi",3),
+          buildButton("Kata Sandi",3,false),
           buildPadding(40),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -112,7 +114,7 @@ class _AkunSayaPageState extends State<AkunSayaPage> {
     );
   }
 
-  Widget buildButton(String text,int index) => GestureDetector(
+  Widget buildButton(String text,int index, bool isRiwayat) => GestureDetector(
       child: Container(
         width: double.infinity,
         height: 60,
@@ -147,7 +149,7 @@ class _AkunSayaPageState extends State<AkunSayaPage> {
     ),
     onTap: (){
       Navigator.push(context, MaterialPageRoute(
-        builder: (_) => RiwayatPage(kind: index),
+        builder: (_) => isRiwayat ? RiwayatPage(kind: index) : ChangePasswordPage(),
       ));
     },
   );
