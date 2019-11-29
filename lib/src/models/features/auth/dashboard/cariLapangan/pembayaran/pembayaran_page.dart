@@ -6,6 +6,7 @@ import 'package:sparingin/src/utils/bottom_bar.dart';
 import 'package:sparingin/src/utils/build_padding.dart';
 import 'package:sparingin/src/utils/colors.dart';
 import 'package:sparingin/src/utils/list_lapangan.dart';
+import 'package:sparingin/src/utils/list_pemesanan.dart';
 import 'package:sparingin/src/utils/me.dart';
 import 'package:toast/toast.dart';
 
@@ -154,6 +155,16 @@ class _PembayaranPageState extends State<PembayaranPage> {
                 onPressed: (){
                   if(Me.money >= _hargaSetelahDiskon ) {
                     Me.money -= _hargaSetelahDiskon;
+                    if(Me.register) listPemesanan2.add(new Pemesanan(
+                      lapangan[Me.lapangan].name,
+                      DateTime.now(),
+                      _hargaSetelahDiskon,
+                    ));
+                    else listPemesanan1.add(new Pemesanan(
+                      lapangan[Me.lapangan].name,
+                      DateTime.now(),
+                      _hargaSetelahDiskon,
+                    ));
                     Toast.show("Berhasil membayar", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
                     Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
                       builder: (_) {

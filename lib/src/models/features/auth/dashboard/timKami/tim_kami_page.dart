@@ -18,14 +18,16 @@ class _TimKamiPageState extends State<TimKamiPage> {
   void initState() {
     super.initState();
     bool checkName = false;
-    for (var i = 0; i < listTeam[Me.team].teamPlayer.length; i++) {
-      if(listTeam[Me.team].teamPlayer[i] == Me.name){
-        checkName = true;
-        break;
+    if(Me.team != -1){
+      for (var i = 0; i < listTeam[Me.team].teamPlayer.length; i++) {
+        if(listTeam[Me.team].teamPlayer[i] == Me.name){
+          checkName = true;
+          break;
+        }
       }
-    }
-    if(!checkName){
-      listTeam[Me.team].teamPlayer.add(Me.name);
+      if(!checkName){
+        listTeam[Me.team].teamPlayer.add(Me.name);
+      }
     }
   }
 

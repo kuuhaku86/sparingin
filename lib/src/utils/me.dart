@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sparingin/src/utils/list_pemesanan.dart';
 import 'package:sparingin/src/utils/team.dart';
 
 class Me {
@@ -69,6 +70,21 @@ class Me {
     Me.team = 3;
     Me.money = 300000;
     Me.point = 100;
+    listPemesanan1 = [
+      new Pemesanan(
+        "Perjoeangan", 
+        DateTime(2019,7,12), 
+        100000),
+      new Pemesanan(
+        "Deutch", 
+        DateTime(2019,8,16), 
+        150000),
+      new Pemesanan(
+        "Mojoekertoe", 
+        DateTime(2019,9,1), 
+        125000),
+    ];
+    listPemesanan2 = [];
     listTeam[team].teamPlayer.removeLast();
   }
 }
