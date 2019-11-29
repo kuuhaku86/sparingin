@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/akunSaya/kataSandi/kata_sandi.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/akunSaya/riwayat/riwayat.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/akunSaya/ubahProfil/ubah_profil.dart';
-import 'package:sparingin/src/models/features/auth/dashboard/pay_page/pay_page.dart';
 import 'package:sparingin/src/models/features/auth/login/login_page.dart';
 import 'package:sparingin/src/utils/app_bar.dart';
 import 'package:sparingin/src/utils/bottom_bar.dart';

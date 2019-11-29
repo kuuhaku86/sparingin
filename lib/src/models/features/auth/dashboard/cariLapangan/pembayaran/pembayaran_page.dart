@@ -17,6 +17,9 @@ class PembayaranPage extends StatefulWidget {
 }
 
 class _PembayaranPageState extends State<PembayaranPage> {
+  int _potonganHarga =(lapangan[Me.lapangan].price/10).round();
+  int _hargaSetelahDiskon = (lapangan[Me.lapangan].price - (lapangan[Me.lapangan].price/10).round());
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -100,10 +103,10 @@ class _PembayaranPageState extends State<PembayaranPage> {
               ),
             ),
             buildPadding(10),
-            buildText(true, "1xjam", lapangan[Me.lapangan].name, "150.000"),
-            buildText(true, "Potongan", "Promo diskon 10%", "15.000"),
+            buildText(true, "1xjam", lapangan[Me.lapangan].name, lapangan[Me.lapangan].price.toString()),
+            buildText(true, "Potongan", "Promo diskon 10%", _potonganHarga.toString()),
             buildPadding(30),
-            buildText(false, "Subtotal", "", "135.000"),
+            buildText(false, "Subtotal", "", _hargaSetelahDiskon.toString()),
             buildPadding(40),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -132,7 +135,7 @@ class _PembayaranPageState extends State<PembayaranPage> {
                         width: 10,
                       ),
                       Text(
-                        "135.000",
+                        _hargaSetelahDiskon.toString(),
                         style: TextStyle(
                           color: MyColors.font,
                           fontSize: 15,
@@ -148,14 +151,19 @@ class _PembayaranPageState extends State<PembayaranPage> {
             Center(
               child: RaisedButton(
                 color: MyColors.primary,
-                onPressed: () async {
-                  Toast.show("Berhasil membayar", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
-                  await Future.delayed(Duration(seconds: 1));
-                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-                    builder: (_) {
-                      return DashboardPage();
-                    }
-                  ), ModalRoute.withName('/'));
+                onPressed: (){
+                  if(Me.money >= _hargaSetelahDiskon ) {
+                    Me.money -= _hargaSetelahDiskon;
+                    Toast.show("Berhasil membayar", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                      builder: (_) {
+                        return DashboardPage();
+                      }
+                    ), ModalRoute.withName('/'));
+                  }else{
+                    Toast.show("Saldo kurang", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+                    return;
+                  }
                 },
                 child: Text(
                   "Konfirmasi",
