@@ -4,6 +4,7 @@ import 'package:sparingin/src/models/features/auth/dashboard/akunSaya/riwayat/ri
 import 'package:sparingin/src/models/features/auth/dashboard/cariLapangan/cari_lapangan_page.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/cariLawan/cari_lawan_page.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/faq/faq_page.dart';
+import 'package:sparingin/src/models/features/auth/dashboard/pay_page/pay_page.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/pengaturan/pengaturan_page.dart';
 import 'package:sparingin/src/models/features/auth/dashboard/timKami/tim_kami_page.dart';
 import 'package:sparingin/src/utils/app_bar.dart';
@@ -145,7 +146,11 @@ class _DashboardPageState extends State<DashboardPage> {
         Navigator.push(context, MaterialPageRoute(
           builder: (_) => RiwayatPage(kind: 2),
         ));
-      }:() {},
+      }:() {
+        Navigator.push(context, MaterialPageRoute(
+          builder: (_) => text == "Pay" ? PayPage(title: "Pay", add: false) : PayPage(title: "Top Up", add: true),
+        ));
+      },
     );
   }
 
