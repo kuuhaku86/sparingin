@@ -1,0 +1,63 @@
+name: sparingin
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.5
+  shared_preferences: ^2.1.0
+  carousel_slider: ^4.2.1
+  smooth_star_rating: ^1.0.3
+  toast: ^0.3.0
+  flutter_verification_code: ^1.1.6
+  datetime_picker_formfield: ^2.0.1
+  intl: ^0.18.1
+  sms: ^0.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/lapangan.jpg
+    - assets/images/lapangan2.jpg
+    - assets/images/turnamen1.jpg
+    - assets/images/turnamen2.jpg
+    - assets/images/icon.png
+    - assets/images/sparingin.png
+    - assets/images/icons/akunSaya.png
+    - assets/images/icons/cariLapangan.png
+    - assets/images/icons/cariLawan.png
+    - assets/images/icons/faq.png
+    - assets/images/icons/pengaturan.png
+    - assets/images/icons/timKami.png
+    - assets/images/profile.png
+    - assets/images/card/chelsea.png
+    - assets/images/card/chelseaFutsal.jpg
+    - assets/images/card/liverpool.png
+    - assets/images/card/liverpoolFutsal.jpg
+    - assets/images/card/totenham.png
+    - assets/images/card/totenhamFutsal.jpg
+    - assets/images/card/juaraFutsal.jpg
+    - assets/images/card/krustykrab.png
+    - assets/images/card/phuketUnitedFutsal.jpg
+    - assets/images/card/phuketUnited.png
+    - assets/images/card/canadianFutsal.jpg
+    - assets/images/card/canadian.png
+    - assets/images/card/its.png
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/icon.png"
+
+module:
+  androidX: true # Add this line.
